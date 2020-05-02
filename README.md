@@ -23,7 +23,6 @@ function customBinder1(...args) {
   var bindingObj = args[1];
   var otherArgs = args.slice(2);
   return function(...args2) {
-    console.log('@@@', ...otherArgs);
     func.apply(bindingObj, [...otherArgs, ...args2]);
   };
 }
@@ -37,7 +36,6 @@ Function.prototype.customBinder2 = function(...args) {
   var bindObj = args[0];
   var otherParams = args.slice(1);
   return function(...args2) {
-    console.log('@', args2);
     currentFunc.apply(bindObj, [...otherParams, ...args2]);
   };
 };
